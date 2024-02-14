@@ -9,6 +9,7 @@
 .button {
 	width: 100px;
 	height: 100px;
+	vertical-align: top;
 	font-size: 75px;
 	color: orange;
 	background-color: black;
