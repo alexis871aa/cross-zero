@@ -1,0 +1,14 @@
+.container {
+	height: 100vh;
+	text-align: center;
+}
+
+.clear {
+	background-color: black;
+	font-size: x-large;
+	color: orange;
+	cursor: pointer;
+	border-radius: 60px;
+	border: none;
+	box-shadow: 4px 4px 4px #4f4f4f;
+}
