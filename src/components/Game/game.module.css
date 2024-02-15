@@ -4,11 +4,11 @@
 }
 
 .clear {
-	background-color: black;
+	background-color: #f0ffff;
 	font-size: x-large;
-	color: orange;
+	color: #87cefa;
 	cursor: pointer;
-	border-radius: 60px;
+	border-radius: 10px;
 	border: none;
 	box-shadow: 4px 4px 4px #4f4f4f;
 }

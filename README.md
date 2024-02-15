@@ -47,8 +47,9 @@
 
 -   FieldLayout выводит массив field (с помощью метода map());
 -   InformationLayout выводит статус:
-    _ Если isDraw равен true — 'Ничья';
-    _ Если isDraw равен false, но isGameEnded равен true — `Победа: ${currentPlayer}`; \* Если isDraw равен false и isGameEnded равен false — `Ходит: ${currentPlayer}`.
+    - Если isDraw равен true — 'Ничья';
+    - Если isDraw равен false, но isGameEnded равен true — `Победа: ${currentPlayer}`;
+	- Если isDraw равен false и isGameEnded равен false — `Ходит: ${currentPlayer}`.
 
 Попробуйте вручную поменять значения состояний и убедитесь, что вывод компонентов меняется.
 
