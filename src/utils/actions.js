@@ -1,4 +1,4 @@
-import { isWin } from "./utils";
+import { isWin } from './utils';
 
 export const onClickField = (
 	id,
@@ -6,11 +6,7 @@ export const onClickField = (
 	{ currentPlayer, setCurrentPlayer, setField, isGameEnded, setIsGameEnded, setIsDraw },
 ) => {
 	if (field.at(id) === '' && !isGameEnded) {
-		setField((prevField) => {
-			const newField = [...prevField];
-			newField[id] = currentPlayer;
-			return newField;
-		});
+		setField((prevField) => prevField.toSpliced(id, 1, currentPlayer));
 		const updatedField = field.toSpliced(id, 1, currentPlayer);
 		if (isWin(updatedField, currentPlayer)) {
 			setIsGameEnded(true);
