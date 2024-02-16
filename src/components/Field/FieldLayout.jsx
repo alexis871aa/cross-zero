@@ -1,19 +1,38 @@
-import styles from './field.module.css';
-import { randomId, onClickField } from '/utils';
+import styled from 'styled-components';
+import { randomId } from '../../utils/utils';
+import { onClickField } from '../../utils/actions';
+
+const FieldLayoutStyled = styled.div`
+	margin: 50px auto;
+	width: 300px;
+	height: 300px;
+	border: 1px solid #a9a9a9;
+	box-shadow: 4px 4px 4px #4f4f4f;
+`;
+
+const FieldLayoutButtonStyled = styled.button`
+	width: 100px;
+	height: 100px;
+	vertical-align: top;
+	font-size: 75px;
+	color: #87cefa;
+	background-color: #f0ffff;
+	border: 1px solid #a9a9a9;
+	cursor: pointer;
+`;
 
 export const FieldLayout = ({ field, ...other }) => {
 	return (
-		<div className={styles.container}>
+		<FieldLayoutStyled>
 			{field.map((el, index) => (
-				<button
+				<FieldLayoutButtonStyled
 					key={randomId()}
-					className={styles.button}
 					id={index}
 					onClick={(ev) => onClickField(ev.target.id, field, { ...other })}
 				>
 					{el}
-				</button>
+				</FieldLayoutButtonStyled>
 			))}
-		</div>
+		</FieldLayoutStyled>
 	);
 };
