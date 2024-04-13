@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { GameLayout } from './components';
+import { GameLayout } from '../shared/ui/index.js';
 
 export const Game = () => {
 	const [currentPlayer, setCurrentPlayer] = useState('X');

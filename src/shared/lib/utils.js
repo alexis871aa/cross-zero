@@ -1,4 +1,4 @@
-import { WIN_PATTERNS } from './const';
+import { WIN_PATTERNS } from './const.js';
 
 export const randomId = () => {
 	return Math.round(Math.random() * Date.now());

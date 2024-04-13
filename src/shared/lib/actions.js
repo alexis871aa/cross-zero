@@ -1,4 +1,4 @@
-import { isWin } from './utils';
+import { isWin } from './utils.js';
 
 export const onClickField = (
 	id,

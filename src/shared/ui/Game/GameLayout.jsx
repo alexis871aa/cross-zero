@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { InformationContainer, FieldContainer } from '../index';
-import { onClickClear } from '../../utils/actions';
+import { InformationContainer, FieldContainer } from '../index.js';
+import { onClickClear } from '../../lib/actions.js';
 import PropTypes from 'prop-types';
 
 const GameLayoutStyled = styled.div`

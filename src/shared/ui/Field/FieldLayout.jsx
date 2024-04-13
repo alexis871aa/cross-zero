@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { randomId } from '../../utils/utils';
-import { onClickField } from '../../utils/actions';
+import { randomId } from '../../lib/utils.js';
+import { onClickField } from '../../lib/actions.js';
 
 const FieldLayoutStyled = styled.div`
 	margin: 50px auto;
