@@ -2,7 +2,7 @@ import styles from './field.module.css';
 import { randomId } from '../../lib/utils.js';
 import { store } from '../../../app/store/store.js';
 
-export const FieldLayout = ({ onClickField, appRender }) => {
+export const FieldLayout = ({ onClickField }) => {
 	const { field } = store.getState();
 
 	return (
@@ -12,7 +12,7 @@ export const FieldLayout = ({ onClickField, appRender }) => {
 					className={styles.button}
 					key={randomId()}
 					id={index}
-					onClick={({ target }) => onClickField(target.id, appRender)}
+					onClick={({ target }) => onClickField(target.id)}
 				>
 					{el}
 				</button>

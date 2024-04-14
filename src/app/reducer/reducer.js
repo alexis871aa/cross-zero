@@ -32,7 +32,7 @@ export const reducer = (state = initialState, action) => {
 		case 'clear':
 			return {
 				...initialState,
-				currentPlayer: (state.currentPlayer = 'X'),
+				currentPlayer: 'X',
 			};
 		default:
 			return state;

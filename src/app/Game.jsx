@@ -1,14 +1,23 @@
 import { GameLayout } from '../shared/ui/index.js';
-import { useRenderFields } from '../shared/hooks/useRenderFields.js';
 import { store } from './store/store.js';
+import { useEffect, useState } from 'react';
 
 export const Game = () => {
-	const { appRender } = useRenderFields();
+	const [, setState] = useState(store.getState());
+
+	useEffect(() => {
+		const unsubscribe = store.subscribe(() => {
+			setState(store.getState());
+		});
+
+		return () => {
+			unsubscribe();
+		};
+	}, []);
 
 	const onClickClear = () => {
 		store.dispatch({ type: 'clear' });
-		appRender();
 	};
 
-	return <GameLayout appRender={appRender} onClickClear={onClickClear} />;
+	return <GameLayout onClickClear={onClickClear} />;
 };

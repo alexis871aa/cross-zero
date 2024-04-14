@@ -2,7 +2,7 @@ import { FieldLayout } from './field-layout.jsx';
 import { isWin } from '../../lib/utils.js';
 import { store } from '../../../app/store/store.js';
 
-const onClickField = (id, appRender) => {
+const onClickField = (id) => {
 	const { field, currentPlayer, isGameEnded } = store.getState();
 
 	if (field.at(id) === '' && !isGameEnded) {
@@ -30,9 +30,8 @@ const onClickField = (id, appRender) => {
 			payload: updatedField,
 		});
 	}
-	appRender();
 };
 
-export const Field = ({ appRender }) => {
-	return <FieldLayout onClickField={onClickField} appRender={appRender}></FieldLayout>;
+export const Field = () => {
+	return <FieldLayout onClickField={onClickField}></FieldLayout>;
 };
