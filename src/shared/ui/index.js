@@ -1,3 +1,3 @@
-export * from './Game/GameLayout.jsx';
-export * from './Field/FieldContainer.jsx';
-export * from './Information/InformationContainer.jsx';
+export * from './Game/game-layout.jsx';
+export * from './Field/field.jsx';
+export * from './Information/information.jsx';
