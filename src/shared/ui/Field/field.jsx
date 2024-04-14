@@ -4,7 +4,6 @@ import { store } from '../../../app/store/store.js';
 
 const onClickField = (id, appRender) => {
 	const { field, currentPlayer, isGameEnded } = store.getState();
-	console.log({ field, currentPlayer });
 
 	if (field.at(id) === '' && !isGameEnded) {
 		const updatedField = field.toSpliced(id, 1, currentPlayer);

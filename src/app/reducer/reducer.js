@@ -30,7 +30,10 @@ export const reducer = (state = initialState, action) => {
 				field: (state.field = payload),
 			};
 		case 'clear':
-			return initialState;
+			return {
+				...initialState,
+				currentPlayer: (state.currentPlayer = 'X'),
+			};
 		default:
 			return state;
 	}
