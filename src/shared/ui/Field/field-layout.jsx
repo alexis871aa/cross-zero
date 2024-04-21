@@ -1,9 +1,10 @@
 import styles from './field.module.css';
 import { randomId } from '../../lib/utils.js';
-import { store } from '../../../app/store/store.js';
+import { useSelector } from 'react-redux';
+import { selectField } from '../../../app/selectors/index.js';
 
 export const FieldLayout = ({ onClickField }) => {
-	const { field } = store.getState();
+	const field = useSelector(selectField);
 
 	return (
 		<div className={styles.fields}>

@@ -4,8 +4,8 @@ import { Information, Field } from '../index.js';
 export const GameLayout = (props) => {
 	return (
 		<div className={styles.content}>
-			<Information></Information>
-			<Field {...props}></Field>
+			<Information />
+			<Field />
 			<button className={styles.button} onClick={props.onClickClear}>
 				Начать заново
 			</button>
