@@ -1,46 +1,54 @@
-import { FieldLayout } from './field-layout.jsx';
+import { Component } from 'react';
+import { connect } from 'react-redux';
 import { isWin } from '../../lib/utils.js';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-	selectCurrentPlayer,
-	selectField,
-	selectIsGameEnded,
-} from '../../../app/selectors';
+import { FieldLayout } from './field-layout.jsx';
 
-export const Field = () => {
-	const field = useSelector(selectField);
-	const currentPlayer = useSelector(selectCurrentPlayer);
-	const isGameEnded = useSelector(selectIsGameEnded);
+class FieldContainer extends Component {
+	constructor(props) {
+		super(props);
+	}
 
-	const dispatch = useDispatch();
+	onClickField = (id) => {
+		if (this.props.field.at(id) === '' && !this.props.isGameEnded) {
+			const updatedField = this.props.field.toSpliced(
+				id,
+				1,
+				this.props.currentPlayer,
+			);
 
-	const onClickField = (id) => {
-		if (field.at(id) === '' && !isGameEnded) {
-			const updatedField = field.toSpliced(id, 1, currentPlayer);
-
-			if (isWin(updatedField, currentPlayer)) {
-				dispatch({ type: 'isGameEnded/checked', payload: true });
+			if (isWin(updatedField, this.props.currentPlayer)) {
+				this.props.dispatch({ type: 'isGameEnded/checked', payload: true });
 			} else if (
-				!isWin(updatedField, currentPlayer) &&
+				!isWin(updatedField, this.props.currentPlayer) &&
 				!updatedField.some((el) => el === '')
 			) {
-				dispatch({ type: 'isDraw/checked', payload: true });
+				this.props.dispatch({ type: 'isDraw/checked', payload: true });
 			} else if (
-				!isWin(updatedField, currentPlayer) &&
+				!isWin(updatedField, this.props.currentPlayer) &&
 				updatedField.some((el) => el === '')
 			) {
-				dispatch({
+				this.props.dispatch({
 					type: 'currentPlayer/checked',
-					payload: currentPlayer === 'X' ? '0' : 'X',
+					payload: this.props.currentPlayer === 'X' ? '0' : 'X',
 				});
 			}
 
-			dispatch({
+			this.props.dispatch({
 				type: 'field/add',
 				payload: updatedField,
 			});
 		}
 	};
 
-	return <FieldLayout onClickField={onClickField}></FieldLayout>;
-};
+	render() {
+		return <FieldLayout onClickField={this.onClickField}></FieldLayout>;
+	}
+}
+
+const mapStateToProps = (state) => ({
+	field: state.field,
+	currentPlayer: state.currentPlayer,
+	isGameEnded: state.isGameEnded,
+});
+
+export const Field = connect(mapStateToProps)(FieldContainer);

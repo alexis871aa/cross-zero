@@ -1,5 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
-	margin: 0;
-	padding: 0;
+	@apply m-0 p-0;
 	background-color: #fff8dc;
+}
+
+@layer components {
+	.content {
+		@apply text-center;
+		height: 100vh;
+	}
+	.button {
+		@apply mt-3 cursor-pointer;
+		background-color: #f0ffff;
+		font-size: x-large;
+		color: #87cefa;
+		border-radius: 10px;
+		border: none;
+		box-shadow: 4px 4px 4px #4f4f4f;
+	}
+	.fields {
+		@apply m-auto mt-2 w-80 h-80;
+		border: 1px solid #a9a9a9;
+		box-shadow: 4px 4px 4px #4f4f4f;
+	}
+	.field_button {
+		@apply cursor-pointer;
+		width: 106px;
+		height: 106px;
+		vertical-align: top;
+		font-size: 75px;
+		color: #87cefa;
+		background-color: #f0ffff;
+		border: 1px solid #a9a9a9;
+	}
+	.information {
+		@apply mt-3 font-bold;
+		color: #20b2aa;
+		font-size: xx-large;
+		text-shadow: 2px 2px 2px #4f4f4f;
+	}
 }

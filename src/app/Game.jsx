@@ -1,11 +1,19 @@
+import { Component } from 'react';
+import { connect } from 'react-redux';
 import { GameLayout } from '../shared/ui/index.js';
-import { useDispatch } from 'react-redux';
 
-export const Game = () => {
-	const dispatch = useDispatch();
-	const onClickClear = () => {
-		dispatch({ type: 'clear' });
-	};
+class GameContainer extends Component {
+	constructor(props) {
+		super(props);
+	}
 
-	return <GameLayout onClickClear={onClickClear} />;
-};
+	render() {
+		return <GameLayout onClickClear={this.props.onClickClear} />;
+	}
+}
+
+const mapDispatchToProps = (dispatch) => ({
+	onClickClear: () => dispatch({ type: 'clear' }),
+});
+
+export const Game = connect(null, mapDispatchToProps)(GameContainer);

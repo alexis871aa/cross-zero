@@ -1,23 +1,32 @@
-import styles from './field.module.css';
+import { Component } from 'react';
+import { connect } from 'react-redux';
 import { randomId } from '../../lib/utils.js';
-import { useSelector } from 'react-redux';
-import { selectField } from '../../../app/selectors/index.js';
 
-export const FieldLayout = ({ onClickField }) => {
-	const field = useSelector(selectField);
+class FieldLayoutContainer extends Component {
+	constructor(props) {
+		super(props);
+	}
 
-	return (
-		<div className={styles.fields}>
-			{field.map((el, index) => (
-				<button
-					className={styles.button}
-					key={randomId()}
-					id={index}
-					onClick={({ target }) => onClickField(target.id)}
-				>
-					{el}
-				</button>
-			))}
-		</div>
-	);
-};
+	render() {
+		return (
+			<div className="fields">
+				{this.props.field.map((el, index) => (
+					<button
+						className="field_button"
+						key={randomId()}
+						id={index}
+						onClick={({ target }) => this.props.onClickField(target.id)}
+					>
+						{el}
+					</button>
+				))}
+			</div>
+		);
+	}
+}
+
+const mapStateToProps = (state) => ({
+	field: state.field,
+});
+
+export const FieldLayout = connect(mapStateToProps)(FieldLayoutContainer);
